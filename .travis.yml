@@ -9,8 +9,13 @@ script:
 - docker build --cache-from uptospace/rpi3-python:3.5.5 -t uptospace/rpi3-python .
 # push image
 - >
-  docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
-  docker tag uptospace/rpi3-python uptospace/rpi3-python:3.5.5
-  docker push uptospace/rpi3-python:3.5.5
-  docker push uptospace/rpi3-python
-  
+  if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+    docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
+    docker tag uptospace/rpi3-python uptospace/rpi3-python:3.5.5
+    docker push uptospace/rpi3-python:3.5.5
+    docker push uptospace/rpi3-python
+  else
+    docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
+    docker tag uptospace/rpi3-python uptospace/rpi3-python:3.5.5
+    docker push uptospace/rpi3-python:3.5.5
+  fi
