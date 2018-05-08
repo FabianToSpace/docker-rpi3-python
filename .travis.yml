@@ -9,9 +9,8 @@ script:
 - docker build -t uptospace/rpi3-python .
 # push image
 - >
-  if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-    docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
-    docker tag uptospace/rpi3-python uptospace/rpi3-python:3.5.5
-    docker push uptospace/rpi3-python:3.5.5
-    docker push uptospace/rpi3-python
-  fi
+  docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
+  docker tag uptospace/rpi3-python uptospace/rpi3-python:3.5.5
+  docker push uptospace/rpi3-python:3.5.5
+  docker push uptospace/rpi3-python
+  
