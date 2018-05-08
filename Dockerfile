@@ -25,6 +25,6 @@ RUN sudo apt-get update && apt-get install -y --no-install-recommends\
         git
 
 RUN wget https://www.python.org/ftp/python/3.5.5/Python-3.5.5.tgz && \
-        tar zxvf Python-3.5.5.tgz && 
+        tar zxvf Python-3.5.5.tgz
 
 CMD ["echo","'No CMD command was set in Dockerfile! Details about CMD command could be found in Dockerfile Guide section in our Docs. Here's the link: http://docs.resin.io/deployment/dockerfile"]
