@@ -2,11 +2,13 @@ sudo: required
 services:
 - docker
 language: bash
+before_install:
+- docker pull uptospace/rpi3-python:3.5.5
 script:
 # prepare qemu
 - docker run --rm --privileged multiarch/qemu-user-static:register --reset
 # build image
-- docker build -t uptospace/rpi3-python .
+- docker build --cache-from uptospace/rpi3-python:3.5.5 -t uptospace/rpi3-python .
 # push image
 - >
   docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
