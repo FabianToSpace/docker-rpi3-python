@@ -27,15 +27,15 @@ RUN sudo apt-get update && apt-get install -y --no-install-recommends\
 RUN wget https://www.python.org/ftp/python/3.5.5/Python-3.5.5.tgz && \
         tar zxvf Python-3.5.5.tgz && \
         cd Python-3.5.5 && \
-        make -j 4 && \
         ./configure --prefix=/usr/local/opt/Python-3.5.5 && \
+        make -j 4 && \
         sudo make altinstall
 
-RUN sudo ln -s /usr/local/opt/Python-3.5.5/bin/pydoc3.6 /usr/bin/pydoc && \
-        sudo ln -s /usr/local/opt/Python-3.5.5/bin/python3.6 /usr/bin/python && \
-        sudo ln -s /usr/local/opt/Python-3.5.5/bin/python3.6m /usr/bin/pythonm && \
-        sudo ln -s /usr/local/opt/Python-3.5.5/bin/pyvenv-3.6 /usr/bin/pyvenv && \
-        sudo ln -s /usr/local/opt/Python-3.5.5/bin/pip3.6 /usr/bin/pip
+RUN sudo ln -s /usr/local/opt/Python-3.5.5/bin/pydoc3.5 /usr/bin/pydoc && \
+        sudo ln -s /usr/local/opt/Python-3.5.5/bin/python3.5 /usr/bin/python && \
+        sudo ln -s /usr/local/opt/Python-3.5.5/bin/python3.5m /usr/bin/pythonm && \
+        sudo ln -s /usr/local/opt/Python-3.5.5/bin/pyvenv-3.5 /usr/bin/pyvenv && \
+        sudo ln -s /usr/local/opt/Python-3.5.5/bin/pip3.5 /usr/bin/pip
 
 RUN rm -r Python-3.5.5 && \
     rm Python-3.5.5.tgz
